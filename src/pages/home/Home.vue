@@ -20,26 +20,32 @@ export default {
 
 <style lang="stylus">
 .home
-    width 100%
+    display flex
+    flex-direction column
+    align-items center
+    margin-top 16px
 
-@media screen and (min-width: 950px)
+.product-list
+    // display none
+    margin-bottom 16px
+
+@media screen and (min-width: 750px)
     .home
         display flex
-        position absolute
-        top 50%
-        left 50%
-        transform translate(-50%, -50%)
+        flex-direction initial
+        align-items initial
+        justify-content  center
 
-    .product-list
-        margin-right  2%
+        > *
+            margin 5px
 
-@media screen and (min-width: 1300px)
+@media screen and (min-width: 1200px)
     .home
-        display flex
-        width 70%
-        position absolute
-        top 50%
-        left 50%
-        transform translate(-50%, -50%)
+        width 1200px
+        margin 16px auto
+        // top 20%
+        // left 50%
+        // position absolute
+        // transform translate(-50%, -20%)
 
 </style>

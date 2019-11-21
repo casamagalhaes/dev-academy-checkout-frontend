@@ -3,6 +3,7 @@
         <h2 class="title">Produtos</h2>
         <div class="product-list-container">
             <home-product-list-item class="product-item" v-for="product in products" :key="product.id" :product="product" />
+            <!-- <home-product-list-item class="product-item" v-for="product in products" :key="product.id" :product="product" /> -->
         </div>
     </div>
 </template>
@@ -32,19 +33,23 @@ export default {
 
 <style lang="stylus" scoped>
 .home-product-list
-    width 100%
+    width 96%
     background-color #fff
+    border 1px solid #e6e6e6
     border-radius 4px
-
-.product-list-container
-    max-height 60vh
-    overflow-y auto
 
 .title
     text-align left
-    padding 0px 20px
+    padding 12px 20px
+    border-bottom 1px solid #e6e6e6
 
 .product-item + .product-item
     border-top 1px solid #e6e6e6
+
+@media screen and (min-width: 1200px)
+    .home-product-list
+        max-height 641px
+        overflow auto
+        // margin 16px auto
 
 </style>
