@@ -62,18 +62,19 @@ export default {
 
 <style lang="stylus" scoped>
 .checkout
-    padding 0 20px
     width 80%
-    height 550px
-    position absolute
-    top 50%
-    left 50%
-    transform translate(-50%, -50%)
-    background-color #fff
+    margin auto
+    margin-top 16px
+    border 1px solid #e6e6e6
     border-radius 4px
 
 .title
     text-align left
+    padding 12px 20px
+    border-bottom 1px solid #e6e6e6
+
+form
+    padding 20px
 
 .form-group
     width 100%
@@ -106,9 +107,7 @@ export default {
     display flex
 
 .button-container
-    position absolute
-    width calc(100% - 38px) 
-    bottom 20px
+    margin-top 33px
 
 .submit-button
     width 100%
@@ -131,5 +130,5 @@ export default {
 
 @media screen and (min-width: 1200px)
     .checkout
-        width 35%
+        width 30%
 </style>
