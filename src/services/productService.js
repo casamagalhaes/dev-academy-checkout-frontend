@@ -1,10 +1,14 @@
-import axios from 'axios'
-const URL = 'https://sgdpps197d.execute-api.us-east-1.amazonaws.com/v1/unauth'
+import api from "./api";
 
 const getAll = () => {
-    return axios.get(`${URL}/products/mock`)
-}
+  return api.get("/products");
+};
+
+const save = data => {
+  return api.post("/products", data);
+};
 
 export default {
-    getAll
-}
+  getAll,
+  save
+};
