@@ -22,3 +22,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+Nome: Caio Weliton Nascimento Queiroz
+Curso: Engenharia de Software
+Semestre: 6º
