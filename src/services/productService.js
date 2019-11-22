@@ -1,10 +1,24 @@
-import axios from 'axios'
-const URL = 'https://sgdpps197d.execute-api.us-east-1.amazonaws.com/v1/unauth'
+import axios from "axios";
+
+const token = localStorage.getItem("token");
 
 const getAll = () => {
-    return axios.get(`${URL}/products/mock`)
-}
+  return axios.get("/products", {
+    headers: {
+      Authorization: token
+    }
+  });
+};
+
+const save = product => {
+  return axios.post("/products", product, {
+    headers: {
+      Authorization: token
+    }
+  });
+};
 
 export default {
-    getAll
-}
+  getAll,
+  save
+};

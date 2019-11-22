@@ -1,35 +1,33 @@
-import Amplify, { Auth } from 'aws-amplify';
+import Amplify, { Auth } from "aws-amplify";
 
-const email = 'devacademy@casamagalhaes.com.br'
-const password = '1234567'
+const USER_EMAIL = "daniellimasilva@alu.ufc.br";
+const USER_PASSWORD = "1234567";
+
 const appConfig = {
-    Auth: {
-        mandatorySignIn: true,
-        region: 'us-east-1',
-        userPoolId: 'us-east-1_jv62S4IGj',
-        userPoolWebClientId: '71jnhj4f9klfpf4cbfuvkhmdjj',
-        identityPoolId: 'us-east-1:01722b46-cbcf-4db4-b3d3-5adeb8f848e7'
-    }
-}
+  Auth: {
+    mandatorySignIn: true,
+    region: "us-east-1",
+    userPoolId: "us-east-1_rrWEcs5tt",
+    userPoolWebClientId: "ne6lpp5k182rr2e7kta5k8r94"
+  }
+};
 
 Amplify.configure(appConfig);
 
 const authenticate = async () => {
-    await Auth.signIn(email, password);
-    const authenticationToken = (await Auth.currentSession()).getIdToken().getJwtToken();
-    saveAuthenticationToken(authenticationToken)
-}
+  const user = await Auth.signIn(USER_EMAIL, USER_PASSWORD);
 
-const saveAuthenticationToken = (authenticationToken) => {
-    localStorage.setItem('authenticationToken', authenticationToken)
-}
+  if (
+    user.hasOwnProperty("challengeName") &&
+    user.challengeName == "NEW_PASSWORD_REQUIRED"
+  ) {
+    Auth.completeNewPassword(user, USER_PASSWORD);
+  }
 
-const getAuthenticationToken = () => {
-    return localStorage.getItem('authenticationToken')
-}
+  const jwt = (await Auth.currentSession()).getIdToken().getJwtToken();
+  localStorage.setItem("token", jwt);
+};
 
 export default {
-    authenticate,
-    saveAuthenticationToken,
-    getAuthenticationToken
-}
+  authenticate
+};
