@@ -1,6 +1,7 @@
 import { productService } from '@/services'
 
 const state = {
+    isLoading: false,
     products: []
 }
 
@@ -15,6 +16,20 @@ const actions = {
         return productService.getAll().then(response => {
             const products = [...response.data].map(product => ({ ...product, quantity: 0 }))
             commit('setProducts', products)
+        })
+    },
+    fetchByIdProducts({commit}){
+        return productService.getById().then(response =>{
+            const products = [...response.data].map(product => ({ ...product, quantity: 0 }))
+            commit('setProducts', products)
+        })
+    },
+    saveProducts({ state, commit }) {
+        commit('setLoading', true)
+        return productService.save(state.products).then(response => {
+            console.log(response)
+        }).finally(() => {
+            commit('setLoading', false)
         })
     }
 }
@@ -31,6 +46,9 @@ const mutations = {
     },
     setProducts(state, payload) {
         state.products = payload
+    },
+    setLoading(state, value) {
+        state.isLoading = value
     }
 }
 

@@ -28,7 +28,7 @@
                 <input type="text" v-model="form.cvvCode" id="cvv-code" required/>
             </div>
             <div class="button-container">
-                <button class="submit-button">Pagar</button>
+                <button @click="paga" class="submit-button">Pagar</button>
             </div>
         </form>
 
@@ -55,7 +55,11 @@ export default {
         })
     },
     methods: {
-        ...mapActions(['saveSale'])
+        ...mapActions(['saveSale']),
+        paga(){
+            this.$router.go(-1)
+        }
+        
     }
 }
 </script>
