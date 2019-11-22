@@ -1,13 +1,13 @@
 import Amplify, { Auth } from 'aws-amplify';
 
-const email = 'devacademy@casamagalhaes.com.br'
-const password = '1234567'
+const email = 'contato.caioweliton@gmail.com'
+const password = '12345678'
 const appConfig = {
     Auth: {
         mandatorySignIn: true,
         region: 'us-east-1',
-        userPoolId: 'us-east-1_jv62S4IGj',
-        userPoolWebClientId: '71jnhj4f9klfpf4cbfuvkhmdjj',
+        userPoolId: 'us-east-1_fLmddo2uE',
+        userPoolWebClientId: '18j8vsmvcgm63b230aebaqg1rh',
         identityPoolId: 'us-east-1:01722b46-cbcf-4db4-b3d3-5adeb8f848e7'
     }
 }

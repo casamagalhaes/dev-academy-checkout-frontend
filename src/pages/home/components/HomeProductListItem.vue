@@ -5,6 +5,11 @@
             <h4 class="brand">{{ product.brand }}</h4>
             <p class="description">{{ product.description }}</p>
         </div>
+        <div class="info">
+            <router-link :to="{ name: 'product-info', params: {id: product.id}}">
+                <button class="btn-info">Ver Info</button>
+            </router-link>
+        </div>
         <div class="quantity-controls">
             <button class="decrease" @click="decreaseProductQuantity(product.id)">-</button>
             <p class="quantity">{{ product.quantity }}</p>
@@ -60,6 +65,22 @@ export default {
 .general-info
     width 100%
     margin-bottom 30px
+
+.info
+    height max-content
+    display inline-flex
+    width 30%
+
+    button
+        border 1px solid #1177ff
+        border-radius px
+        font-size 1rem
+        font-weight 500
+        background none
+        color #1177ff
+
+        &:focus
+            outline 0
 
 .quantity-controls
     height max-content

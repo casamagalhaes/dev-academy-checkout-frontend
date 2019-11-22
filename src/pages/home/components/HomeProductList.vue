@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         ...mapActions(['fetchAllProducts'])
-    },
+    }
 }
 </script>
 
