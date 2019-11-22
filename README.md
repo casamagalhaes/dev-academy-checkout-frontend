@@ -1,24 +1,17 @@
-# dev-academy-checkout-frontend
+# DevAcademyDesafio-Jo-o-
+Usando Vue como framework e AWS como backend
+Sou o participante João Pedro Dedê da Silva
+e-mail joam.mega@gmail.com
+Cursando Design Digital 6º semestre
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Skills:
+Angular
+React-native
+Vue
+HTML e css
+JS
+Java
+Postgres
+NodeJS
+Express
+MongoDB
