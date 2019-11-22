@@ -1,40 +1,25 @@
 <template>
-    <div class="product-list-item">
-        <div class="general-info">
-            <h3 class="name">{{ product.name }}</h3>
-            <h4 class="brand">{{ product.brand }}</h4>
-            <p class="description">{{ product.description }}</p>
-        </div>
-        <div class="quantity-controls">
-            <button class="decrease" @click="decreaseProductQuantity(product.id)">-</button>
-            <p class="quantity">{{ product.quantity }}</p>
-            <button class="increase" @click="increaseProductQuantity(product.id)">+</button>
-        </div>
-        <div class="sub-total">
-            <p>
-                {{ productTotalPrice | toMoney }}
-            </p>
-        </div>
+    <div class="home">
+        <product-list-item class="product-list-item"/>
     </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from 'vuex'
+import { Loading } from '@/components'
 
-const { mapMutations } = createNamespacedHelpers('products')
+const { mapState, mapGetters, mapActions } = createNamespacedHelpers('products')
 
 export default {
-    name: 'HomeProductListItem',
-    props: {
-        product: Object
-    },
-    computed: {
-        productTotalPrice() {
-            return (this.product.price * (this.product.quantity || 1))
-        }
+    name: 'ListProductById',
+    components: {
+        ProductListItem
     },
     methods: {
-        ...mapMutations(['increaseProductQuantity', 'decreaseProductQuantity'])
+        ...mapActions(['getById'])
+    },
+     created() {
+        this.getById();
     }
 }
 </script>
@@ -42,7 +27,7 @@ export default {
 <style lang="stylus" scoped>
 .product-list-item
     padding 10px 20px
-    text-align left
+    text-align center
 
 .name
     margin 0

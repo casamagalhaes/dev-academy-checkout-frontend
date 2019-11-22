@@ -1,29 +1,33 @@
 <template>
     <div class="home">
-        <home-product-list class="product-list" />
-        <home-payment-summary class="payment-summary" />
+        <create-product class="paymment-summary" />
+        <product-list class="product-list" />
+        
     </div>
 </template>
-
 <script>
-import HomeProductList from "./components/HomeProductList";
-import HomePaymentSummary from "./components/HomePaymentSummary";
+import ProductList from "./component/ProductList";
+import CreateProduct from "./CreateProduct";
 
 export default {
-    name: "Home",
+    name: "CRUDProduct",
     components: {
-        HomeProductList,
-        HomePaymentSummary
+        ProductList,
+        CreateProduct
     }
 };
 </script>
 
 <style lang="stylus">
 .home
-    width 100%
+    width 200%
+    
+        display : flex
+        flex-direction column
 
 @media screen and (min-width: 950px)
     .home
+        height 60%
         display flex
         position absolute
         top 50%
@@ -35,8 +39,9 @@ export default {
 
 @media screen and (min-width: 1300px)
     .home
+        height 60%
         display flex
-        width 80%
+        width 70%
         position absolute
         top 50%
         left 50%

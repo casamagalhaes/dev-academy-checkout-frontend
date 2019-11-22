@@ -5,16 +5,7 @@
             <h4 class="brand">{{ product.brand }}</h4>
             <p class="description">{{ product.description }}</p>
         </div>
-        <div class="quantity-controls">
-            <button class="decrease" @click="decreaseProductQuantity(product.id)">-</button>
-            <p class="quantity">{{ product.quantity }}</p>
-            <button class="increase" @click="increaseProductQuantity(product.id)">+</button>
-        </div>
-        <div class="sub-total">
-            <p>
-                {{ productTotalPrice | toMoney }}
-            </p>
-        </div>
+        
     </div>
 </template>
 
@@ -24,7 +15,7 @@ import { createNamespacedHelpers } from 'vuex'
 const { mapMutations } = createNamespacedHelpers('products')
 
 export default {
-    name: 'HomeProductListItem',
+    name: 'ProductListItem',
     props: {
         product: Object
     },
@@ -42,7 +33,7 @@ export default {
 <style lang="stylus" scoped>
 .product-list-item
     padding 10px 20px
-    text-align left
+    text-align center
 
 .name
     margin 0
