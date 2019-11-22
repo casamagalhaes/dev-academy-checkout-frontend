@@ -7,7 +7,14 @@ const state = {
     brand: "",
     price: "",
     description: ""
-  }
+  },
+  productActive: {
+    name: "",
+    brand: "",
+    price: "",
+    description: ""
+  },
+  isLoading: false
 };
 
 const getters = {
@@ -30,8 +37,16 @@ const actions = {
     });
   },
   async saveProduct({ state, commit }) {
+    commit("setLoading", true);
     const { data } = await productService.save(state.formProduct);
     commit("setProduct", data);
+    commit("setLoading", false);
+  },
+  async getProductById({ commit }, id) {
+    commit("setLoading", true);
+    const { data } = await productService.getById(id);
+    commit("setProductActive", data);
+    commit("setLoading", false);
   }
 };
 
@@ -49,6 +64,12 @@ const mutations = {
   },
   setProduct(state, payload) {
     state.products.push({ ...payload, quantity: 0 });
+  },
+  setProductActive(state, payload) {
+    state.productActive = payload;
+  },
+  setLoading(state, payload) {
+    state.isLoading = payload;
   }
 };
 

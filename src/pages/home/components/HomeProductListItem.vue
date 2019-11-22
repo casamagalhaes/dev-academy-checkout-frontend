@@ -1,48 +1,57 @@
 <template>
-    <div class="product-list-item">
-        <div class="general-info">
-            <h3 class="name">{{ product.name }}</h3>
-            <h4 class="brand">{{ product.brand }}</h4>
-            <p class="description">{{ product.description }}</p>
-        </div>
-        <div class="quantity-controls">
-            <button class="decrease" @click="decreaseProductQuantity(product.id)">-</button>
-            <p class="quantity">{{ product.quantity }}</p>
-            <button class="increase" @click="increaseProductQuantity(product.id)">+</button>
-        </div>
-        <div class="sub-total">
-            <p>
-                {{ productTotalPrice | toMoney }}
-            </p>
-        </div>
+  <div class="product-list-item">
+    <div class="general-info" @click="$router.push(`/product/${product.id}`)">
+      <h3 class="name">{{ product.name }}</h3>
+      <h4 class="brand">{{ product.brand }}</h4>
+      <p class="description">{{ product.description }}</p>
     </div>
+    <div class="quantity-controls">
+      <button class="decrease" @click="decreaseProductQuantity(product.id)">
+        -
+      </button>
+      <p class="quantity">{{ product.quantity }}</p>
+      <button class="increase" @click="increaseProductQuantity(product.id)">
+        +
+      </button>
+    </div>
+    <div class="sub-total">
+      <p>
+        {{ productTotalPrice | toMoney }}
+      </p>
+    </div>
+  </div>
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex'
+import { createNamespacedHelpers } from "vuex";
 
-const { mapMutations } = createNamespacedHelpers('products')
+const { mapMutations, mapActions } = createNamespacedHelpers("products");
 
 export default {
-    name: 'HomeProductListItem',
-    props: {
-        product: Object
-    },
-    computed: {
-        productTotalPrice() {
-            return (this.product.price * (this.product.quantity || 1))
-        }
-    },
-    methods: {
-        ...mapMutations(['increaseProductQuantity', 'decreaseProductQuantity'])
+  name: "HomeProductListItem",
+  props: {
+    product: Object
+  },
+  computed: {
+    productTotalPrice() {
+      return this.product.price * (this.product.quantity || 1);
     }
-}
+  },
+  methods: {
+    ...mapMutations(["increaseProductQuantity", "decreaseProductQuantity"]),
+    ...mapActions(["getProductById"])
+    // getProduct(id) {
+    //   this.getProductById(id);
+    //   this.$router.push("/product");
+    // }
+  }
+};
 </script>
 
 <style lang="stylus" scoped>
 .product-list-item
     padding 10px 20px
-    text-align left 
+    text-align left
 
 .name
     margin 0
@@ -58,6 +67,7 @@ export default {
     font-size 1rem
 
 .general-info
+    cursor: pointer;
     width 100%
     margin-bottom 30px
 
@@ -97,7 +107,7 @@ export default {
 
     .sub-total
         width 150px
-    
+
     .general-info
         margin-bottom 0
 </style>
