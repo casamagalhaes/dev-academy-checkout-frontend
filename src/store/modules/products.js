@@ -1,7 +1,13 @@
 import { productService } from '@/services'
 
 const state = {
-    products: []
+    products: [],
+    product: {
+        name: '',
+        description: '',
+        price: 0.00,
+        brand: ''
+    }
 }
 
 const getters = {
@@ -15,6 +21,13 @@ const actions = {
         return productService.getAll().then(response => {
             const products = [...response.data].map(product => ({ ...product, quantity: 0 }))
             commit('setProducts', products)
+        })
+    },
+    getProductById({ commit }, payload) {
+        console.log(payload);
+        return productService.getById(payload.productId).then(response => {
+            const product = response.data
+            commit('setProduct', product)
         })
     }
 }
@@ -31,7 +44,11 @@ const mutations = {
     },
     setProducts(state, payload) {
         state.products = payload
+    },
+    setProduct(state, product) {
+        state.product = product
     }
+
 }
 
 

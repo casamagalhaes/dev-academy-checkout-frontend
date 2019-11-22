@@ -5,6 +5,11 @@
             <h4 class="brand">{{ product.brand }}</h4>
             <p class="description">{{ product.description }}</p>
         </div>
+        <div class="details">
+            <router-link :to="{ name: 'product-details', params: {id: product.id}}">
+                <button class="details-button">Ver Detalhes</button>
+            </router-link>
+        </div>
         <div class="quantity-controls">
             <button class="decrease" @click="decreaseProductQuantity(product.id)">-</button>
             <p class="quantity">{{ product.quantity }}</p>

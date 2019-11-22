@@ -13,6 +13,16 @@ const routes = [
     path: '/checkout',
     name: 'checkout',
     component: () => import('../pages/checkout/Checkout.vue')
+  },
+  {
+    path: '/register',
+    name: 'product',
+    component: () => import('../pages/productRegister/Register.vue')
+  },
+  {
+    path: '/product/:id',
+    name: 'product-details',
+    component: () => import('../pages/productFind/ProductFind.vue')
   }
 ]
 
