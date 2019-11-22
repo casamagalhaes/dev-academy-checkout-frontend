@@ -1,8 +1,12 @@
 import axios from 'axios'
-const URL = 'https://sgdpps197d.execute-api.us-east-1.amazonaws.com/v1/unauth'
+import authService from './authService'
+
+const URL = 'https://iytbez709a.execute-api.us-east-2.amazonaws.com/v1'
 
 const getAll = () => {
-    return axios.get(`${URL}/products/mock`)
+    const token = authService.getAuthenticationToken()
+
+    return axios.get(`${URL}/products/`,{headers: { Authorization: token }})
 }
 
 export default {
