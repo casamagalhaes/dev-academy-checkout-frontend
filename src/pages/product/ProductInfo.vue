@@ -25,7 +25,7 @@ export default {
         ...mapState(['product'])
     },
     created() {
-        this.fetchProductById({ productId:this.$route.query.id });        
+        this.fetchProductById({ productId: this.$route.params.id });
     },
     methods: {
         ...mapActions(['fetchProductById'])

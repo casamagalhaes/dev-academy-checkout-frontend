@@ -32,7 +32,6 @@ const actions = {
     },
     fetchProductById({ commit }, payload) {
         console.log(payload);
-        
         return productService.getById(payload.productId).then(response => {
             const product = response.data
             commit('setProduct', product)

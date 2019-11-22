@@ -44,8 +44,8 @@ export default {
         margin-right  2%
 
     .product-add
-        width 64%
-        left 32%
+        width 37.5em
+        left 18.8em
 
 @media screen and (min-width: 1300px)
     .home
