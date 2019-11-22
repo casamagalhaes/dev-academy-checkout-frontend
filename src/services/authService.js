@@ -1,21 +1,22 @@
 import Amplify, { Auth } from 'aws-amplify';
 
-const email = 'devacademy@casamagalhaes.com.br'
-const password = '1234567'
+const email = 'diegogaspar@devacamy.com'
+const password = 'devacademy123'
 const appConfig = {
     Auth: {
         mandatorySignIn: true,
         region: 'us-east-1',
-        userPoolId: 'us-east-1_jv62S4IGj',
-        userPoolWebClientId: '71jnhj4f9klfpf4cbfuvkhmdjj',
-        identityPoolId: 'us-east-1:01722b46-cbcf-4db4-b3d3-5adeb8f848e7'
+        userPoolId: 'us-east-1_hgZEeO5sM',
+        userPoolWebClientId: '75l6hoskj27620ljlvvcv67rb2'
     }
 }
 
 Amplify.configure(appConfig);
 
 const authenticate = async () => {
-    await Auth.signIn(email, password);
+    const user = await Auth.signIn(email, password);
+    // Auth.completeNewPassword(user, 'devacademy123');
+    console.log(user)
     const authenticationToken = (await Auth.currentSession()).getIdToken().getJwtToken();
     saveAuthenticationToken(authenticationToken)
 }
