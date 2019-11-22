@@ -1,6 +1,14 @@
 import { productService } from '@/services'
 
 const state = {
+    isLoading:false,
+    productForm:{
+        name: '',
+        brand: '',
+        description: '',
+        price: 0
+    },
+    productModal:false,
     products: []
 }
 
@@ -16,6 +24,24 @@ const actions = {
             const products = [...response.data].map(product => ({ ...product, quantity: 0 }))
             commit('setProducts', products)
         })
+    },
+    saveProduct({ state, commit }) {
+        commit('setLoading', true)
+        return productService.save(state.productForm).then(response => {
+            console.log(response)
+        }).finally(() => {
+            commit('setLoading', false)
+            location.reload()
+        })
+    },
+    getById({commit},productid){
+        return productService.getId(productid).then(response =>{
+            const productRecovery = response.data
+            console.log(response.data);
+            commit('setProduct', productRecovery);
+            commit('toggleModal');
+        })
+
     }
 }
 
@@ -31,6 +57,17 @@ const mutations = {
     },
     setProducts(state, payload) {
         state.products = payload
+    },
+    toggleModal(state){
+        state.productModal = !state.productModal
+    },
+    setLoading(state, value) {
+        state.isLoading = value
+    },
+    setProduct(state, payload){
+
+        state.productForm = payload
+        
     }
 }
 

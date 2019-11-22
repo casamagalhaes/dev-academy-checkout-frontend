@@ -93,6 +93,6 @@ export default {
     background-color #edeef2
     font-size 1rem
 
-    &:focus
-        outline 0
+    &:hover
+        background-color gray
 </style>

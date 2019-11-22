@@ -1,19 +1,28 @@
 <template>
     <div class="home">
+        <home-product-modal v-if="productModal" class="product-modal"/>
         <home-product-list class="product-list" />
         <home-payment-summary class="payment-summary" />
     </div>
 </template>
 
 <script>
+import {createNamespacedHelpers} from "vuex";
+const {mapState} = createNamespacedHelpers('products')
+
 import HomeProductList from "./components/HomeProductList";
 import HomePaymentSummary from "./components/HomePaymentSummary";
+import HomeProductModal from "./components/HomeProductModal";
 
 export default {
     name: "Home",
     components: {
         HomeProductList,
-        HomePaymentSummary
+        HomePaymentSummary,
+        HomeProductModal
+    },
+    computed:{
+        ...mapState({productModal: 'productModal'})
     }
 };
 </script>
@@ -21,6 +30,14 @@ export default {
 <style lang="stylus">
 .home
     width 100%
+.product-modal
+    width 100%
+    height 100%
+    position fixed
+    top 0 
+    left 0
+    background-color rgba(190, 188, 188, 0.500) 
+    z-index 1000
 
 @media screen and (min-width: 950px)
     .home

@@ -4,8 +4,10 @@
             <h3 class="name">{{ product.name }}</h3>
             <h4 class="brand">{{ product.brand }}</h4>
             <p class="description">{{ product.description }}</p>
+            <p class="description">{{ product.id }}</p>
         </div>
         <div class="quantity-controls">
+            <button @click="getById(product.id)">Recuperar ID</button>
             <button class="decrease" @click="decreaseProductQuantity(product.id)">-</button>
             <p class="quantity">{{ product.quantity }}</p>
             <button class="increase" @click="increaseProductQuantity(product.id)">+</button>
@@ -21,7 +23,7 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 
-const { mapMutations } = createNamespacedHelpers('products')
+const { mapMutations, mapActions } = createNamespacedHelpers('products')
 
 export default {
     name: 'HomeProductListItem',
@@ -29,11 +31,13 @@ export default {
         product: Object
     },
     computed: {
+        
         productTotalPrice() {
             return (this.product.price * (this.product.quantity || 1))
         }
     },
     methods: {
+        ...mapActions(['getById']),
         ...mapMutations(['increaseProductQuantity', 'decreaseProductQuantity'])
     }
 }
@@ -77,6 +81,8 @@ export default {
         font-size 1rem
         font-weight 700
         color #94c6da
+        margin 1px
+        cursor pointer
 
         &:focus
             outline 0
