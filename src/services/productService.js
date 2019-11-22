@@ -1,10 +1,30 @@
-import axios from 'axios'
-const URL = 'https://sgdpps197d.execute-api.us-east-1.amazonaws.com/v1/unauth'
+import axios from "axios";
+import authService from "./authService";
+
+const URL = "https://a7k89hcqf2.execute-api.us-east-2.amazonaws.com/v1";
 
 const getAll = () => {
-    return axios.get(`${URL}/products/mock`)
-}
+  const token = authService.getAuthenticationToken();
 
-export default {
-    getAll
-}
+  return axios.get(`${URL}/products`, {
+    headers: { Authorization: token }
+  });
+};
+
+const getById = id => {
+  const token = authService.getAuthenticationToken();
+
+  return axios.get(`${URL}/products/${id}`, {
+    headers: { Authorization: token }
+  });
+};
+
+const create = product => {
+  const token = authService.getAuthenticationToken();
+
+  return axios.post(`${URL}/products`, product, {
+    headers: { Authorization: token }
+  });
+};
+
+export default { getAll, getById, create };
