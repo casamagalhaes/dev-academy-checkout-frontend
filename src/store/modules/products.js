@@ -48,7 +48,7 @@ const mutations = {
     state.products = payload;
   },
   setProduct(state, payload) {
-    state.products.push(payload);
+    state.products.push({ ...payload, quantity: 0 });
   }
 };
 
