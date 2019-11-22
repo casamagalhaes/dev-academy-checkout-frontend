@@ -9,6 +9,16 @@ const getAll = () => {
     return axios.get(`${URL}/products/`,{headers: { Authorization: token }})
 }
 
+const save = (product) => {
+    return axios.post(`${URL}/products`,product,{headers: { Authorization: localStorage.getItem('authenticationToken') }})
+}
+
+const getById = (id) => {
+    return axios.get(`${URL}/products/${id}`,{headers: { Authorization: localStorage.getItem('authenticationToken') }})
+}
+
 export default {
-    getAll
+    getAll,
+    save,
+    getById
 }

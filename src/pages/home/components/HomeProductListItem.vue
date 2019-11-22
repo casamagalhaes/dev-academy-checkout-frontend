@@ -1,5 +1,6 @@
 <template>
     <div class="product-list-item">
+        <div><img src="@/images/search.png" alt="search"  id="show-modal" @click="showInfo= true,getById(product.id)"></div>
         <div class="general-info">
             <h3 class="name">{{ product.name }}</h3>
             <h4 class="brand">{{ product.brand }}</h4>
@@ -15,18 +16,28 @@
                 {{ productTotalPrice | toMoney }}
             </p>
         </div>
+        <HomeProductInfo  v-if="showInfo" @close="showInfo = false"/>
     </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from 'vuex'
+import HomeProductInfo from './HomeProductInfo'
 
-const { mapMutations } = createNamespacedHelpers('products')
+const { mapMutations, mapActions } = createNamespacedHelpers('products')
 
 export default {
     name: 'HomeProductListItem',
+    components:{
+        HomeProductInfo
+    },
     props: {
         product: Object
+    },
+    data(){
+        return{
+            showInfo: false
+        }
     },
     computed: {
         productTotalPrice() {
@@ -34,7 +45,8 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(['increaseProductQuantity', 'decreaseProductQuantity'])
+        ...mapMutations(['increaseProductQuantity', 'decreaseProductQuantity']),
+        ...mapActions(['getById'])
     }
 }
 </script>
@@ -80,6 +92,18 @@ export default {
 
         &:focus
             outline 0
+
+        cursor pointer
+
+    button:hover 
+        background-color: #94c6da
+
+img 
+    cursor pointer
+    margin-right 10px
+    height 20px
+    width 20px
+
 
 .sub-total
     width 50%
