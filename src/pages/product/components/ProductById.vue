@@ -6,40 +6,15 @@
             <p class="description">{{ product.productDescription }}</p>
             <p class="description">{{ product.productId }}</p>
         </div>
-        <button class="decrease" @click="fetchProduct(product.productId)">Recuperar ID</button>
-        <div
-         class="quantity-controls">
-            
-            <button class="decrease" @click="decreaseProductQuantity(product.id)">-</button>
-            <p class="quantity">{{ product.quantity }}</p>
-            <button class="increase" @click="increaseProductQuantity(product.id)">+</button>
-        </div>
-        <div class="sub-total">
-            <p>
-                {{ productTotalPrice | toMoney }}
-            </p>
-        </div>
     </div>
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex'
-
-const { mapMutations, mapActions } = createNamespacedHelpers('products')
 
 export default {
-    name: 'HomeProductListItem',
+    name: 'ProductById',
     props: {
         product: Object
-    },
-    computed: {
-        productTotalPrice() {
-            return (this.product.productPrice * (this.product.quantity || 1))
-        }
-    },
-    methods: {
-        ...mapMutations(['increaseProductQuantity', 'decreaseProductQuantity']),
-        ...mapActions(['fetchProduct'])
     }
 }
 </script>

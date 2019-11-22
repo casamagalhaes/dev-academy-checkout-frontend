@@ -1,5 +1,8 @@
 <template>
     <div class="home">
+        <div class="nav">
+            <a href="/product">Cadastrar Produtos</a>
+        </div>
         <home-product-list class="product-list" />
         <home-payment-summary class="payment-summary" />
     </div>
@@ -8,12 +11,14 @@
 <script>
 import HomeProductList from "./components/HomeProductList";
 import HomePaymentSummary from "./components/HomePaymentSummary";
+// import HomeProductGetById from "./components/HomeProductGetById"; 
 
 export default {
     name: "Home",
     components: {
         HomeProductList,
         HomePaymentSummary
+        // HomeProductGetById
     }
 };
 </script>
@@ -21,6 +26,20 @@ export default {
 <style lang="stylus">
 .home
     width 100%
+    
+a
+    padding 5px
+    display block
+    background white
+    margin 5px
+    border-radius 5px
+    width: 100px
+    text-decoration: none
+    transition all 0.3s
+    color: black
+
+    &:hover
+        background darken(white, 20%)
 
 @media screen and (min-width: 950px)
     .home

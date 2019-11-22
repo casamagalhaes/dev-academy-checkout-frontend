@@ -1,24 +1,6 @@
-# dev-academy-checkout-frontend
+Nome: Francisco Iago de Sousa Mendes
+Email: iagosousadev@gmail.com
 
-## Project setup
-```
-npm install
-```
+Aprendi bastante com o curso, apesar de não ter experiência com Vue.js, ser iniciante em Node.js e ter sido minha primeira vez utilizando AWS acho que tive um ótimo aproveitamento no que coube a minha capacidade no momento do curso.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+O curso também proporcionou uma maior curiosidade sobre as tecnologias abordadas, com certeza me aprofundarei e as utilizarei no futuro
