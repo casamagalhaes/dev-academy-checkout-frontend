@@ -1,9 +1,12 @@
 <template>
     <div class="home-product-list">
+
         <h2 class="title">Produtos</h2>
         <div class="product-list-container">
             <home-product-list-item class="product-item" v-for="product in products" :key="product.id" :product="product" />
         </div>
+
+
     </div>
 </template>
 

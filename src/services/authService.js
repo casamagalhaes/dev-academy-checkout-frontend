@@ -6,8 +6,8 @@ const appConfig = {
     Auth: {
         mandatorySignIn: true,
         region: 'us-east-1',
-        userPoolId: 'us-east-1_3IqhbrRtX',
-        userPoolWebClientId: '3kdfl3it2o94e66g5tgf00mj3e'
+        userPoolId: 'seu pool aqui',
+        userPoolWebClientId: 'seu pool aqui'
     }
 }
 

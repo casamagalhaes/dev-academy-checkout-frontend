@@ -8,7 +8,14 @@ const state = {
         description: '',
         price: 0,
         brand: ""
+    },
+    product: {
+        name: '',
+        description: '',
+        price: '',
+        brand: ''
     }
+
 }
 
 const getters = {
@@ -28,7 +35,9 @@ const actions = {
     getById({commit},id){
         commit('setLoading', true)
         return productService.getById(id).then( response => {
-            commit('setProduct',response.data)
+            const product = response.data;
+            commit('setProduct', product)
+            commit('toggleModal');
         }).finally(()=> {
             commit('setLoading', false)
         })

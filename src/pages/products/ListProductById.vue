@@ -1,26 +1,28 @@
 <template>
     <div class="home">
+        Detalhes do Produto -
+      <a href="/">Voltar</a>
         <product-list-item class="product-list-item"/>
     </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from 'vuex'
-import { Loading } from '@/components'
+import ProductListItem from './component/ProductListItem.vue'
 
-const { mapState, mapGetters, mapActions } = createNamespacedHelpers('products')
+const { mapActions } = createNamespacedHelpers('products')
 
 export default {
-    name: 'ListProductById',
-    components: {
+    name: "Details",
+    components:{
         ProductListItem
     },
-    methods: {
-        ...mapActions(['getById'])
-    },
-     created() {
-        this.getById();
-    }
+  computed: {
+    
+  },
+  methods: {
+    ...mapActions(["getById"])
+  }
 }
 </script>
 

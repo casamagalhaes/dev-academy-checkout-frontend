@@ -4,6 +4,7 @@
             <h3 class="name">{{ product.name }}</h3>
             <h4 class="brand">{{ product.brand }}</h4>
             <p class="description">{{ product.description }}</p>
+            <p class="price">{{product.price}}</p>
         </div>
         
     </div>
@@ -20,6 +21,7 @@ export default {
         product: Object
     },
     computed: {
+
         productTotalPrice() {
             return (this.product.price * (this.product.quantity || 1))
         }
