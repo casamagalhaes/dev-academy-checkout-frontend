@@ -6,8 +6,8 @@
 
 <style lang="stylus">
 #app
-  width 100%
-  height 100%
+  width 100vw
+  height 100vh
   position relative
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
@@ -18,9 +18,4 @@
 
 body
   margin 0
-
-html, body
-  width 100%
-  height 100%
-
 </style>

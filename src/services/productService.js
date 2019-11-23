@@ -1,10 +1,22 @@
-import axios from 'axios'
-const URL = 'https://sgdpps197d.execute-api.us-east-1.amazonaws.com/v1/unauth'
+import axios from "axios";
+const URL = "https://ctmvyudxed.execute-api.us-east-1.amazonaws.com/v1/";
 
-const getAll = () => {
-    return axios.get(`${URL}/products/mock`)
-}
+const getAll = () => axios.get(`${URL}/products/`);
+
+const getById = id => axios.get(`${URL}/products/${id}`);
+
+const deleteById = id => axios.delete(`${URL}/products/${id}`);
+
+const save = product => {
+  const token = localStorage.getItem("token");
+  return axios.post(`${URL}/product/`, product, {
+    headers: { Authorizaton: token }
+  });
+};
 
 export default {
-    getAll
-}
+  getById,
+  getAll,
+  save,
+  deleteById
+};
