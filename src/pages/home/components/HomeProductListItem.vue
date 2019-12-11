@@ -2,7 +2,6 @@
     <div class="product-list-item">
         <div class="general-info">
             <h3 class="name">{{ product.name }}</h3>
-            <h4 class="brand">{{ product.brand }}</h4>
             <p class="description">{{ product.description }}</p>
         </div>
         <div class="quantity-controls">
@@ -46,47 +45,50 @@ export default {
 
 .name
     margin 0
-    font-size 1rem
-
-.brand
-    margin 0
-    font-size .9rem
-    font-weight 500
+    font-size 16px
 
 .description
     margin 10px 0 0
-    font-size 1rem
+    font-size 14px
+    color #7d7d7d
 
 .general-info
     width 100%
     margin-bottom 30px
 
 .quantity-controls
-    height max-content
     display inline-flex
     width 50%
-    // justify-content flex-end
+    align-items center
 
     .quantity
-        margin 0 10px
-        font-size 1rem
-        font-weight 700
+        min-width 40px
+        text-align center
+        // margin 0 12px
 
     button
-        border none
-        font-size 1rem
-        font-weight 700
-        color #94c6da
+        // font-size 1rem
+        font-weight 600
+        color #fff
+        width 32px
+        height 24px
+        line-height 24px
+        font-size 24px
+        border-radius 4px
 
         &:focus
             outline 0
+
+    .increase, .decrease
+        border 1px solid #94c6da
+        background-color #94c6da
 
 .sub-total
     width 50%
     display inline-flex
     justify-content flex-end
 
-@media screen and (min-width 600px)
+@media screen and (min-width 600px) and (max-width 750px), screen and (min-width 1000px)
     .product-list-item
         display flex
         align-items center

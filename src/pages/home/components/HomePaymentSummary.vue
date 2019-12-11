@@ -44,55 +44,70 @@ export default {
 
 <style lang="stylus">
 .home-payment-summary
-    position relative
-    padding 0 20px
+    width 96%
+    height 408px
     background-color #fff
+    border 1px solid #e6e6e6
     border-radius 4px
 
-.title, .description
-    text-align left
 
-.billing-info 
-    border-top 1px solid #eee
-    border-bottom 1px solid #eee
-    
-    div
-        display flex
-        justify-content space-between
-
-        p
-            margin 10px 0
-
-    .key
+    .title
         text-align left
-    
-    .value
-        text-align right 
+        padding 12px 20px
+        border-bottom 1px solid #e6e6e6
 
-.total-value
-    text-align right
-    font-size 1.1rem
+    .description
+        padding 12px 20px
+        color #565656
+        text-align left
 
-    .total
-        font-weight 700
-        margin-bottom 10px
+    .billing-info
+        color #565656
+        padding 0px 20px 12px
+        // border-top 1px solid #eee
+        // border-bottom 1px solid #eee
+        
+        div
+            display flex
+            justify-content space-between
 
-    .value
-        margin 0
+            p
+                margin 10px 0
 
-.button-container
-    position absolute
-    width calc(100% - 40px) 
-    bottom 20px
+        .key
+            text-align left
+        
+        .value
+            text-align right 
 
-.checkout-button
-    width 100%
-    height 50px
-    border-radius 4px
-    border 1px solid #eee
-    background-color #edeef2
-    font-size 1rem
+    .total-value
+        padding 12px 20px
+        text-align right
+        font-size 1.1rem
 
-    &:focus
-        outline 0
+        .total
+            // font-weight 700
+            margin-bottom 10px
+
+        .value
+            margin 0
+
+    .button-container
+        padding 20px
+        margin-top 33px
+
+    .checkout-button
+        width 100%
+        height 50px
+        border-radius 4px
+        border 1px solid #eee
+        background-color #edeef2
+        font-size 1rem
+
+        &:focus
+            outline 0
+
+@media screen and (min-width 750px)
+    .home-payment-summary
+        max-width 400px
 </style>

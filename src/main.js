@@ -4,6 +4,7 @@ import router from './router'
 import filters from './filters'
 import store from './store'
 import authService from './services/authService'
+import './assets/css/index.styl'
 
 Vue.config.productionTip = false
 
