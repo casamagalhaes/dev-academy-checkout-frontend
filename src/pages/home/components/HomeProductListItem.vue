@@ -79,9 +79,9 @@ export default {
         &:focus
             outline 0
 
-    // .increase
-    //     border 1px solid #94c6da
-    //     background-color #94c6da
+    .increase, .decrease
+        border 1px solid #94c6da
+        background-color #94c6da
 
 .sub-total
     width 50%

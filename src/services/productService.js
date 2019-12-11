@@ -1,8 +1,8 @@
 import axios from 'axios'
-const URL = 'https://sgdpps197d.execute-api.us-east-1.amazonaws.com/v1/unauth'
+const URL = 'https://v4swljsb00.execute-api.us-east-1.amazonaws.com/v1'
 
 const getAll = () => {
-    return axios.get(`${URL}/products/mock`)
+    return axios.get(`${URL}/unauth/products/mock`)
 }
 
 export default {
